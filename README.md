@@ -2,7 +2,7 @@
 Mars News Exploration with Web Scraping
 
 A web browser was automated to collect data from various websites about Mars and the data was stored in a NoSQL database. 
-The data is displayed in a web application. 
+
 
 Steps: 
 1. Install scraping tools (Splinter, Web-Driver Manager, bs4 (BeautifulSoup, Flask, and MongoDB). 
