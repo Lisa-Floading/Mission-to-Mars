@@ -120,3 +120,33 @@ def scrape_all():
     # Initiate headless driver for deployment
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=True)
+
+
+# 1. Use browser to visit the URL 
+url = 'https://marshemispheres.com/'
+
+browser.visit(url)
+
+# 2. Create a list to hold the images and titles.
+hemisphere_image_urls = []
+
+# 3. Write code to retrieve the image urls and titles for each hemisphere.
+for i in range(4):
+    
+    hemispheres = {}
+    
+    browser.find_by_css('a.product-item h3')[i].click()
+    element = browser.links.find_by_text('Sample').first
+    img_url = element['href']
+    title = browser.find_by_css("h2.title").text
+    hemispheres["img_url"] = img_url
+    hemispheres["title"] = title
+    hemisphere_image_urls.append(hemispheres)
+    browser.back()
+
+
+# 4. Print the list that holds the dictionary of each image url and title.
+hemisphere_image_urls
+
+# 5. Quit the browser
+browser.quit()
